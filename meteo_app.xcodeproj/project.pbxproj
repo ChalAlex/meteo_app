@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		E8BFA7FA23A025BC003983D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA7F923A025BC003983D8 /* AppDelegate.swift */; };
-		E8BFA7FC23A025BC003983D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA7FB23A025BC003983D8 /* ViewController.swift */; };
+		E8BFA7FC23A025BC003983D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA7FB23A025BC003983D8 /* MainViewController.swift */; };
 		E8BFA7FF23A025BC003983D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BFA7FD23A025BC003983D8 /* Main.storyboard */; };
 		E8BFA80123A025BE003983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BFA80023A025BE003983D8 /* Assets.xcassets */; };
 		E8BFA80423A025BE003983D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BFA80223A025BE003983D8 /* LaunchScreen.storyboard */; };
 		E8BFA80F23A025BE003983D8 /* meteo_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA80E23A025BE003983D8 /* meteo_appTests.swift */; };
 		E8BFA81B23A02674003983D8 /* LocalisationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA81A23A02674003983D8 /* LocalisationManager.swift */; };
+		E8BFA89C23A033DB003983D8 /* ForbiddenAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA89B23A033DB003983D8 /* ForbiddenAccessViewController.swift */; };
+		E8BFA89E23A0369C003983D8 /* AskAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA89D23A0369C003983D8 /* AskAccessViewController.swift */; };
+		E8BFA8A223A03DEB003983D8 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA8A123A03DEB003983D8 /* MainInteractor.swift */; };
+		E8BFA8A423A0405E003983D8 /* DefaultMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA8A323A0405E003983D8 /* DefaultMainInteractor.swift */; };
+		E8BFA8AA23A0540E003983D8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BFA8A923A0540E003983D8 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +34,7 @@
 /* Begin PBXFileReference section */
 		E8BFA7F623A025BC003983D8 /* meteo_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meteo_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BFA7F923A025BC003983D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E8BFA7FB23A025BC003983D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E8BFA7FB23A025BC003983D8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E8BFA7FE23A025BC003983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8BFA80023A025BE003983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8BFA80323A025BE003983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +43,11 @@
 		E8BFA80E23A025BE003983D8 /* meteo_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meteo_appTests.swift; sourceTree = "<group>"; };
 		E8BFA81023A025BF003983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8BFA81A23A02674003983D8 /* LocalisationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalisationManager.swift; sourceTree = "<group>"; };
+		E8BFA89B23A033DB003983D8 /* ForbiddenAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForbiddenAccessViewController.swift; sourceTree = "<group>"; };
+		E8BFA89D23A0369C003983D8 /* AskAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskAccessViewController.swift; sourceTree = "<group>"; };
+		E8BFA8A123A03DEB003983D8 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		E8BFA8A323A0405E003983D8 /* DefaultMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMainInteractor.swift; sourceTree = "<group>"; };
+		E8BFA8A923A0540E003983D8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +89,10 @@
 		E8BFA7F823A025BC003983D8 /* meteo_app */ = {
 			isa = PBXGroup;
 			children = (
-				E8BFA89923A03305003983D8 /* LocalisationViews */,
 				E8BFA89723A02FCA003983D8 /* Ressources */,
 				E8BFA89623A02FAB003983D8 /* Launch */,
 				E8BFA81923A02654003983D8 /* LocalisationManager */,
 				E8BFA89A23A03315003983D8 /* ViewControllers */,
-				E8BFA7FB23A025BC003983D8 /* ViewController.swift */,
 			);
 			path = meteo_app;
 			sourceTree = "<group>";
@@ -118,6 +126,7 @@
 		E8BFA89723A02FCA003983D8 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E8BFA8A923A0540E003983D8 /* Default-568h@2x.png */,
 				E8BFA7FD23A025BC003983D8 /* Main.storyboard */,
 				E8BFA80023A025BE003983D8 /* Assets.xcassets */,
 				E8BFA80523A025BE003983D8 /* Info.plist */,
@@ -125,18 +134,40 @@
 			path = Ressources;
 			sourceTree = "<group>";
 		};
-		E8BFA89923A03305003983D8 /* LocalisationViews */ = {
+		E8BFA89923A03305003983D8 /* AccessLocalisation */ = {
 			isa = PBXGroup;
 			children = (
+				E8BFA89B23A033DB003983D8 /* ForbiddenAccessViewController.swift */,
+				E8BFA89D23A0369C003983D8 /* AskAccessViewController.swift */,
 			);
-			path = LocalisationViews;
+			path = AccessLocalisation;
 			sourceTree = "<group>";
 		};
 		E8BFA89A23A03315003983D8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8BFA8A023A039DC003983D8 /* Detail */,
+				E8BFA89F23A039CF003983D8 /* Master */,
+				E8BFA89923A03305003983D8 /* AccessLocalisation */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E8BFA89F23A039CF003983D8 /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				E8BFA7FB23A025BC003983D8 /* MainViewController.swift */,
+				E8BFA8A123A03DEB003983D8 /* MainInteractor.swift */,
+				E8BFA8A323A0405E003983D8 /* DefaultMainInteractor.swift */,
+			);
+			path = Master;
+			sourceTree = "<group>";
+		};
+		E8BFA8A023A039DC003983D8 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8BFA80423A025BE003983D8 /* LaunchScreen.storyboard in Resources */,
+				E8BFA8AA23A0540E003983D8 /* Default-568h@2x.png in Resources */,
 				E8BFA80123A025BE003983D8 /* Assets.xcassets in Resources */,
 				E8BFA7FF23A025BC003983D8 /* Main.storyboard in Resources */,
 			);
@@ -240,8 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8BFA89C23A033DB003983D8 /* ForbiddenAccessViewController.swift in Sources */,
+				E8BFA8A423A0405E003983D8 /* DefaultMainInteractor.swift in Sources */,
+				E8BFA89E23A0369C003983D8 /* AskAccessViewController.swift in Sources */,
 				E8BFA81B23A02674003983D8 /* LocalisationManager.swift in Sources */,
-				E8BFA7FC23A025BC003983D8 /* ViewController.swift in Sources */,
+				E8BFA7FC23A025BC003983D8 /* MainViewController.swift in Sources */,
+				E8BFA8A223A03DEB003983D8 /* MainInteractor.swift in Sources */,
 				E8BFA7FA23A025BC003983D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5R6QN6LV52;
-				INFOPLIST_FILE = meteo_app/Info.plist;
+				INFOPLIST_FILE = meteo_app/Ressources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,7 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5R6QN6LV52;
-				INFOPLIST_FILE = meteo_app/Info.plist;
+				INFOPLIST_FILE = meteo_app/Ressources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

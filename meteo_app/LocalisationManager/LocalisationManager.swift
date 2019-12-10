@@ -27,14 +27,18 @@ public enum LocalisationState {
 
 public class LocalisationManager: NSObject {
     private let locationManager = CLLocationManager()
+    private var askAccessCompletion: (() -> Void)?
+    private var localisationCompletion: ((Double, Double) -> Void)?
 
-    public private(set) var latitude: Double?
-    public private(set) var longitude: Double?
+    public override init() {
+        super.init()
+        locationManager.delegate = self
+    }
 
     @discardableResult
-    public func activateLocalisation() -> Bool {
+    public func localisation(completion: @escaping (Double, Double) -> Void) -> Bool {
+        locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
             locationManager.startUpdatingLocation()
             return true
@@ -42,11 +46,24 @@ public class LocalisationManager: NSObject {
             return false
         }
     }
+
+    public func askAccess(completion: @escaping () -> Void) {
+        locationManager.requestWhenInUseAuthorization()
+        askAccessCompletion = completion
+    }
 }
 
 extension LocalisationManager: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        latitude = locations.first?.coordinate.latitude
-        longitude = locations.first?.coordinate.longitude
+        guard let location = locations.first else { return }
+        /// Needed to be called only once after an localisation function.
+        localisationCompletion?(location.coordinate.latitude, location.coordinate.longitude)
+        localisationCompletion = nil
+    }
+
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        /// Needed to be called only once after an askAccess configuration.
+        askAccessCompletion?()
+        askAccessCompletion = nil
     }
 }
