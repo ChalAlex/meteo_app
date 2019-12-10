@@ -21,7 +21,7 @@ public struct MainViewModel {
 
 public protocol MainDelegate {
     func launchSegue(_ identifier: String)
-    func updateTableView(_ model: MainViewModel)
+    func update(_ model: MainViewModel)
 }
 
 public protocol MainInteractor {

@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainDelegate {
-    func updateTableView(_ model: MainViewModel) {
+    func update(_ model: MainViewModel) {
         self.model = model
         updateView()
     }
