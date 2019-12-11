@@ -22,6 +22,7 @@
 		E8BFA8AC23A05A9A003983D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA8AB23A05A9A003983D8 /* DetailViewController.swift */; };
 		E8BFA8AE23A05AB2003983D8 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA8AD23A05AB2003983D8 /* DetailInteractor.swift */; };
 		E8BFA8B023A05AC3003983D8 /* DefaultDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA8AF23A05AC3003983D8 /* DefaultDetailInteractor.swift */; };
+		E8BFA8B323A1848A003983D8 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA8B223A1848A003983D8 /* WeatherRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E8BFA8AB23A05A9A003983D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E8BFA8AD23A05AB2003983D8 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		E8BFA8AF23A05AC3003983D8 /* DefaultDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailInteractor.swift; sourceTree = "<group>"; };
+		E8BFA8B223A1848A003983D8 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		E8BFA7F823A025BC003983D8 /* meteo_app */ = {
 			isa = PBXGroup;
 			children = (
+				E8BFA8B123A18477003983D8 /* Models */,
 				E8BFA89723A02FCA003983D8 /* Ressources */,
 				E8BFA89623A02FAB003983D8 /* Launch */,
 				E8BFA81923A02654003983D8 /* LocalisationManager */,
@@ -177,6 +180,14 @@
 				E8BFA8AF23A05AC3003983D8 /* DefaultDetailInteractor.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		E8BFA8B123A18477003983D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8BFA8B223A1848A003983D8 /* WeatherRequest.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				E8BFA89E23A0369C003983D8 /* AskAccessViewController.swift in Sources */,
 				E8BFA8B023A05AC3003983D8 /* DefaultDetailInteractor.swift in Sources */,
 				E8BFA8AE23A05AB2003983D8 /* DetailInteractor.swift in Sources */,
+				E8BFA8B323A1848A003983D8 /* WeatherRequest.swift in Sources */,
 				E8BFA81B23A02674003983D8 /* LocalisationManager.swift in Sources */,
 				E8BFA7FC23A025BC003983D8 /* MainViewController.swift in Sources */,
 				E8BFA8A223A03DEB003983D8 /* MainInteractor.swift in Sources */,
