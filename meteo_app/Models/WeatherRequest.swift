@@ -8,6 +8,11 @@
 
 import Foundation
 
+public struct RequestData: Codable, Equatable {
+    public let status: Int
+    public let requestKey: String
+    public let weatherDatas: [String: WeatherData]
+}
 
 public struct WeatherData: Codable, Equatable {
     public let temperature: Temperature
