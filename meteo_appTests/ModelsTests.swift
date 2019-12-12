@@ -70,4 +70,28 @@ class ModelsTests: XCTestCase {
         }
     }
 
+    func testDataSaverEncodeDecode() {
+        let bundle = Bundle(for: type(of: self))
+        guard let path = bundle.url(forResource: "WeatherRequestMocked", withExtension: "json") else {
+            XCTFail()
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: path)
+            let weatherDatas = try DecodeRequestData.weatherDatas(data)
+
+            DataSaver.save(data: weatherDatas)
+
+            if let retrievedData = DataSaver.retrieve() {
+                XCTAssertEqual(weatherDatas, retrievedData)
+            } else {
+                XCTFail("Can't retrieve data")
+            }
+
+        } catch {
+            XCTFail("Can't parse weatherDatas with Jsondecoder, \(error)")
+        }
+    }
+
 }

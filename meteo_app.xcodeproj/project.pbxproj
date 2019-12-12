@@ -10,6 +10,7 @@
 		E81BC3EC23A2EFF6003E8566 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC3EB23A2EFF6003E8566 /* DataView.swift */; };
 		E81BC3ED23A2FA13003E8566 /* WeatherRequestMocked.json in Resources */ = {isa = PBXBuildFile; fileRef = E8BFA8B423A18FA0003983D8 /* WeatherRequestMocked.json */; };
 		E81BC3EE23A2FA72003E8566 /* WeatherRequestMocked.json in Resources */ = {isa = PBXBuildFile; fileRef = E8BFA8B423A18FA0003983D8 /* WeatherRequestMocked.json */; };
+		E81BC3F023A30091003E8566 /* DataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC3EF23A30091003E8566 /* DataSaver.swift */; };
 		E8BFA7FA23A025BC003983D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA7F923A025BC003983D8 /* AppDelegate.swift */; };
 		E8BFA7FC23A025BC003983D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BFA7FB23A025BC003983D8 /* MainViewController.swift */; };
 		E8BFA7FF23A025BC003983D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BFA7FD23A025BC003983D8 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		E81BC3EB23A2EFF6003E8566 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		E81BC3EF23A30091003E8566 /* DataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSaver.swift; sourceTree = "<group>"; };
 		E8BFA7F623A025BC003983D8 /* meteo_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meteo_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BFA7F923A025BC003983D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8BFA7FB23A025BC003983D8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				E8BFA8B623A1936D003983D8 /* ConvertRequestDatas.swift */,
 				E8BFA8BD23A19F97003983D8 /* ModelManager.swift */,
 				E8BFA8BF23A19FA6003983D8 /* RequestManager.swift */,
+				E81BC3EF23A30091003E8566 /* DataSaver.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			files = (
 				E8BFA89C23A033DB003983D8 /* ForbiddenAccessViewController.swift in Sources */,
 				E8BFA8DB23A2D97C003983D8 /* MockedLocationManager.swift in Sources */,
+				E81BC3F023A30091003E8566 /* DataSaver.swift in Sources */,
 				E8BFA8A423A0405E003983D8 /* DefaultMainInteractor.swift in Sources */,
 				E8BFA89E23A0369C003983D8 /* AskAccessViewController.swift in Sources */,
 				E8BFA8B023A05AC3003983D8 /* DefaultDetailInteractor.swift in Sources */,

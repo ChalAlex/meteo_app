@@ -72,14 +72,21 @@ public class ImpModelManager: ModelManager {
             switch result {
             case let .success(newData):
                 do {
-                    self?.appModel = try DecodeRequestData.weatherDatas(newData)
+                    let model = try DecodeRequestData.weatherDatas(newData)
+                    self?.appModel = model
+                    DataSaver.save(data: model)
                     completion(nil)
                 } catch {
                     completion(error)
                 }
 
             case let .failure(error):
-                completion(error)
+                if let retrievedData = DataSaver.retrieve() {
+                    self?.appModel = retrievedData
+                    completion(nil)
+                } else {
+                    completion(error)
+                }
             }
         }
     }
