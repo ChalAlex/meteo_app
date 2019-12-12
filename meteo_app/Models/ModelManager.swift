@@ -41,7 +41,7 @@ public class ImpModelManager: ModelManager {
 
     private let requestManager: RequestManager
 
-    public init(requestManager: RequestManager) {
+    private init(requestManager: RequestManager) {
         self.requestManager = requestManager
     }
 
@@ -97,5 +97,25 @@ extension ImpModelManager {
                 listener.updatedWeatherData(weatherData: weatherData)
             }
         }
+    }
+}
+
+/// All creator of Model Manager
+/// Real, Debug, Mocked
+extension ImpModelManager {
+    static func create() -> ModelManager {
+        let locationManager = ImpLocalisationManager()
+        let requestManager = ImpRequestManager(locationManager: locationManager)
+        return ImpModelManager(requestManager: requestManager)
+    }
+
+    static func createMockedLocation() -> ModelManager {
+        let locationManager = MockedLocalisationManager()
+        let requestManager = ImpRequestManager(locationManager: locationManager)
+        return ImpModelManager(requestManager: requestManager)
+    }
+
+    static func createMockedRequest() -> ModelManager {
+        return ImpModelManager(requestManager: MockedRequestManager(state: .success))
     }
 }

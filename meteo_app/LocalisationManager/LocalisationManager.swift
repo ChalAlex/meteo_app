@@ -25,7 +25,12 @@ public enum LocalisationState {
     }
 }
 
-public class LocalisationManager: NSObject {
+public protocol LocalisationManager {
+    func localisation(completion: @escaping (Double, Double) -> Void) -> Bool
+    func askAccess(completion: @escaping () -> Void)
+}
+
+public class ImpLocalisationManager: NSObject, LocalisationManager {
     private let locationManager = CLLocationManager()
     private var askAccessCompletion: (() -> Void)?
     private var localisationCompletion: ((Double, Double) -> Void)?
@@ -39,7 +44,8 @@ public class LocalisationManager: NSObject {
     public func localisation(completion: @escaping (Double, Double) -> Void) -> Bool {
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+            self.localisationCompletion = completion
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             return true
         } else {
@@ -53,7 +59,7 @@ public class LocalisationManager: NSObject {
     }
 }
 
-extension LocalisationManager: CLLocationManagerDelegate {
+extension ImpLocalisationManager: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         /// Needed to be called only once after an localisation function.

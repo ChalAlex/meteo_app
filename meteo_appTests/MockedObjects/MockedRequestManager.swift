@@ -7,7 +7,6 @@
 //
 
 import Foundation
-@testable import meteo_app
 
 public enum MockedRequestManagerstate {
     case success

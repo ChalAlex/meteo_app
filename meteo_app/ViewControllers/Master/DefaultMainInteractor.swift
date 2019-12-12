@@ -14,6 +14,7 @@ private let detailIdentifier = "ShowDetailsSegue"
 
 public class DefaultMainInteractor: MainInteractor {
     private var delegate: MainDelegate?
+    private var model = MainViewModel.initialized
 
     public init() {}
 
@@ -21,19 +22,50 @@ public class DefaultMainInteractor: MainInteractor {
         self.delegate = delegate
         switch LocalisationState.get() {
         case .ask:
-            self.delegate?.launchSegue(askAccesIdentifier)
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.launchSegue(askAccesIdentifier)
+            }
         case .denied:
-            self.delegate?.launchSegue(accessDeniedIdentifier)
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.launchSegue(accessDeniedIdentifier)
+            }
         case .access:
-            break
+            AppDelegate.modelManager.add(self)
+            AppDelegate.modelManager.refreshData { error in
+                if let error = error {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.delegate?.showAlert(title: "Error", message: error.localizedDescription)
+                    }
+                }
+            }
         }
     }
 
     public func stop() {
         delegate = nil
+        AppDelegate.modelManager.remove(self)
     }
 
     public func rowSelected(at index: Int) {
-        delegate?.launchSegue(detailIdentifier)
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.launchSegue(detailIdentifier)
+        }
+    }
+}
+
+extension DefaultMainInteractor: WeatherDatasListener {
+    public var id: String { return "DefaultMainInteractor" }
+
+    public func updatedWeatherDatas(weatherDatas: [String : WeatherData]) {
+        let newModel = MainViewModel(
+            title: "Main",
+            cells: weatherDatas.keys.map { MainViewModel.CellModel(title: $0, subtitle: "detail") }
+        )
+        if newModel != model {
+            model = newModel
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.update(newModel)
+            }
+        }
     }
 }

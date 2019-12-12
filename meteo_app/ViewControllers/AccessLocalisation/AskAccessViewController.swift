@@ -9,7 +9,7 @@
 import UIKit
 
 class AskAccessViewController: UIViewController {
-    private let locationManager = LocalisationManager()
+    private let locationManager = ImpLocalisationManager()
 
     @IBAction func askAccess(_ sender: Any) {
         locationManager.askAccess { [weak self] in

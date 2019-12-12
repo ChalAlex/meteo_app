@@ -13,7 +13,8 @@ class ModelManagerTests: XCTestCase {
 
     func testRequestFailed() {
         let expectation = self.expectation(description: "waitErrorCompletion")
-        let modelManager = ImpModelManager(requestManager: MockedRequestManager(state: .error))
+        let requestManager: RequestManager = MockedRequestManager(state: .error)
+        let modelManager = ImpModelManager(requestManager: requestManager)
 
         modelManager.refreshData { error in
             XCTAssertNotNil(error)

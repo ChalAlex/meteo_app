@@ -47,5 +47,9 @@
 	<string>Provide weather datas from your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Provide weather datas from your location</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key><true/>
+    </dict>
 </dict>
 </plist>

@@ -13,8 +13,12 @@ public protocol RequestManager {
 }
 
 public class ImpRequestManager: RequestManager {
-    private let locationManager = LocalisationManager()
+    private let locationManager: LocalisationManager
     private let session = URLSession.shared
+
+    public init(locationManager: LocalisationManager) {
+        self.locationManager = locationManager
+    }
 
     public func getWeatherData(completion: @escaping (Result<Data, Error>) -> Void) {
          let locationSucceed = locationManager.localisation() { [weak self] longitude, latitude in
@@ -40,6 +44,6 @@ public class ImpRequestManager: RequestManager {
     }
 
     private static func getUrlString(lattitude: Double, longitude: Double) -> String {
-        return "http://www.infoclimat.fr/public-api/gfs/json?_ll=\(lattitude),\(longitude)&_auth=VE4HEA5wU3FWewA3VCIGLwNrUmdbLVVyUS0AYw9qB3pROl8%2BUTFdO1U7VClSfVVjVHkFZggzUGALYFYuCngFZFQ%2BB2sOZVM0VjkAZVR7Bi0DLVIzW3tVclE6AGUPfAdlUTBfP1EsXT5VO1Q3UnxVYlRkBXoIKFBpC21WNgphBWZUNwdmDmlTNFY9AH1UewY3A2RSZ1syVThRZABjDzcHYFFnXzpRZF09VThUKFJqVWhUZQVnCDFQbwtpVjEKeAV5VE4HEA5wU3FWewA3VCIGLwNlUmxbMA%3D%3D&_c=9fd53217366b8ea2e0ee3fb144d54aeb"
+        return "http://www.infoclimat.fr/public-api/gfs/json?_ll=\(longitude),\(lattitude)&_auth=VE4HEA5wU3FWewA3VCIGLwNrUmdbLVVyUS0AYw9qB3pROl8%2BUTFdO1U7VClSfVVjVHkFZggzUGALYFYuCngFZFQ%2BB2sOZVM0VjkAZVR7Bi0DLVIzW3tVclE6AGUPfAdlUTBfP1EsXT5VO1Q3UnxVYlRkBXoIKFBpC21WNgphBWZUNwdmDmlTNFY9AH1UewY3A2RSZ1syVThRZABjDzcHYFFnXzpRZF09VThUKFJqVWhUZQVnCDFQbwtpVjEKeAV5VE4HEA5wU3FWewA3VCIGLwNlUmxbMA%3D%3D&_c=9fd53217366b8ea2e0ee3fb144d54aeb"
     }
 }

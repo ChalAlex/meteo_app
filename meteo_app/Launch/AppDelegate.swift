@@ -13,6 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    #if DEBUG
+    public static let modelManager = ImpModelManager.createMockedLocation()
+    //public static let modelManager = ImpModelManager.createMockedRequest()
+    #else
+    public static let modelManager = ImpModelManager.create()
+    #endif
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

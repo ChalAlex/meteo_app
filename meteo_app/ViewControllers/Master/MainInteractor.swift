@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct MainViewModel {
-    public struct CellModel {
+public struct MainViewModel: Equatable {
+    public struct CellModel: Equatable {
         public let title: String
         public let subtitle: String
     }
@@ -22,6 +22,7 @@ public struct MainViewModel {
 public protocol MainDelegate {
     func launchSegue(_ identifier: String)
     func update(_ model: MainViewModel)
+    func showAlert(title: String, message: String)
 }
 
 public protocol MainInteractor {
