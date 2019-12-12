@@ -12,6 +12,9 @@ class MainViewController: UIViewController {
     private var interactor: MainInteractor = DefaultMainInteractor()
     fileprivate var model: MainViewModel = MainViewModel.initialized
 
+    /// Use to pass identifier of clicked cell
+    private var dataId: String = ""
+
     @IBOutlet fileprivate var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -33,6 +36,11 @@ class MainViewController: UIViewController {
         self.title = model.title
         tableView.reloadData()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let controller = segue.destination as? DetailViewController else { return }
+        controller.setWeatherDataId(self.dataId)
+    }
 }
 
 extension MainViewController: MainDelegate {
@@ -41,7 +49,8 @@ extension MainViewController: MainDelegate {
         updateView()
     }
 
-    func launchSegue(_ identifier: String) {
+    func launchSegue(_ identifier: String, dataId: String) {
+        self.dataId = dataId
         self.performSegue(withIdentifier: identifier, sender: self)
     }
 

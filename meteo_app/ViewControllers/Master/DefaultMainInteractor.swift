@@ -23,11 +23,11 @@ public class DefaultMainInteractor: MainInteractor {
         switch LocalisationState.get() {
         case .ask:
             DispatchQueue.main.async { [weak self] in
-                self?.delegate?.launchSegue(askAccesIdentifier)
+                self?.delegate?.launchSegue(askAccesIdentifier, dataId: "")
             }
         case .denied:
             DispatchQueue.main.async { [weak self] in
-                self?.delegate?.launchSegue(accessDeniedIdentifier)
+                self?.delegate?.launchSegue(accessDeniedIdentifier, dataId: "")
             }
         case .access:
             AppDelegate.modelManager.add(self)
@@ -47,8 +47,9 @@ public class DefaultMainInteractor: MainInteractor {
     }
 
     public func rowSelected(at index: Int) {
+        let dataId = model.cells[index].title
         DispatchQueue.main.async { [weak self] in
-            self?.delegate?.launchSegue(detailIdentifier)
+            self?.delegate?.launchSegue(detailIdentifier, dataId: dataId)
         }
     }
 }

@@ -108,14 +108,16 @@ extension ImpModelManager {
         let requestManager = ImpRequestManager(locationManager: locationManager)
         return ImpModelManager(requestManager: requestManager)
     }
-
+    
+    #if DEBUG
     static func createMockedLocation() -> ModelManager {
         let locationManager = MockedLocalisationManager()
         let requestManager = ImpRequestManager(locationManager: locationManager)
         return ImpModelManager(requestManager: requestManager)
     }
 
-    static func createMockedRequest() -> ModelManager {
-        return ImpModelManager(requestManager: MockedRequestManager(state: .success))
+    static func createMockedRequest(state: MockedRequestManagerstate) -> ModelManager {
+        return ImpModelManager(requestManager: MockedRequestManager(state: state))
     }
+    #endif
 }

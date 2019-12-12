@@ -20,7 +20,7 @@ public struct MainViewModel: Equatable {
 }
 
 public protocol MainDelegate {
-    func launchSegue(_ identifier: String)
+    func launchSegue(_ identifier: String, dataId: String)
     func update(_ model: MainViewModel)
     func showAlert(title: String, message: String)
 }

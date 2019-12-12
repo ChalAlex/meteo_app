@@ -8,10 +8,20 @@
 
 import Foundation
 
-public struct DetailViewModel {
+public struct DetailViewModel: Equatable {
     public let title: String
-    public let temperature: String
-    static let initialized = DetailViewModel(title: "Detail", temperature: "")
+    public let temperature1: DataView.Model
+    public let temperature2: DataView.Model
+    public let humidite: DataView.Model
+    public let pression: DataView.Model
+
+    static let initialized = DetailViewModel(
+        title: "Detail",
+        temperature1: DataView.Model(title: "2m", data: ""),
+        temperature2: DataView.Model(title: "sol", data: ""),
+        humidite: DataView.Model(title: "2m", data: ""),
+        pression: DataView.Model(title: "Sea level", data: "")
+    )
 }
 
 public protocol DetailDelegate {
@@ -19,6 +29,7 @@ public protocol DetailDelegate {
 }
 
 public protocol DetailInteractor {
+    func setWeatherDataId(_ dataId: String)
     func start(delegate: DetailDelegate)
     func stop()
 }

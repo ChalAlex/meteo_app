@@ -13,8 +13,7 @@ class ModelManagerTests: XCTestCase {
 
     func testRequestFailed() {
         let expectation = self.expectation(description: "waitErrorCompletion")
-        let requestManager: RequestManager = MockedRequestManager(state: .error)
-        let modelManager = ImpModelManager(requestManager: requestManager)
+        let modelManager = ImpModelManager.createMockedRequest(state: .error)
 
         modelManager.refreshData { error in
             XCTAssertNotNil(error)
@@ -26,7 +25,7 @@ class ModelManagerTests: XCTestCase {
 
     func testRequestSucceed() {
         let expectation = self.expectation(description: "waitSuccessCompletion")
-        let modelManager = ImpModelManager(requestManager: MockedRequestManager(state: .success))
+        let modelManager = ImpModelManager.createMockedRequest(state: .success)
 
         modelManager.refreshData { error in
             XCTAssertNil(error)
@@ -41,7 +40,7 @@ class ModelManagerTests: XCTestCase {
         let expectation2 = self.expectation(description: "waitListenerDatasCalled")
         let expectation3 = self.expectation(description: "waitListenerDataCalled")
 
-        let modelManager = ImpModelManager(requestManager: MockedRequestManager(state: .success))
+        let modelManager = ImpModelManager.createMockedRequest(state: .success)
         let mockedListenerDatas = MockedListenerWeatherDatas {
             expectation2.fulfill()
         }

@@ -14,8 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     #if DEBUG
-    public static let modelManager = ImpModelManager.createMockedLocation()
-    //public static let modelManager = ImpModelManager.createMockedRequest()
+    //public static let modelManager = ImpModelManager.createMockedLocation()
+    //public static let modelManager = ImpModelManager.createMockedRequest(state: .success)
+    public static let modelManager = ImpModelManager.create()
     #else
     public static let modelManager = ImpModelManager.create()
     #endif

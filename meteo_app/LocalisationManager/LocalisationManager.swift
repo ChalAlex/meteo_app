@@ -21,6 +21,8 @@ public enum LocalisationState {
             return .access
         case .denied, .restricted:
             return .denied
+        @unknown default:
+            return .denied
         }
     }
 }
